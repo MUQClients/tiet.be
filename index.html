@@ -6,7 +6,7 @@
     <title>Voorbeeld met URL-check</title>
 </head>
 <body>
-    <h1>Test2!!!</h1>
+    <h1>Test3!!!</h1>
     <div id="standaard-content">
         <h1>Welkom op de standaard pagina</h1>
         <p>Dit is de inhoud die getoond wordt als "/ikweethet" niet in de URL staat.</p>
@@ -22,6 +22,10 @@
     <div id="tiet-ikweethet-content" style="display: none;">
         <h1>Je weet het!</h1>
         <p>Dit is de inhoud die getoond wordt als "/tiet.be/ikweethet/" in de URL staat.</p>
+    </div>
+    <div id="url-content">
+        <h1 id="url">Test</h1>
+        <p></p>
     </div>
 
     <script>
@@ -56,6 +60,7 @@
 
         // De inhoud wegschrijven naar het element met id "tiet-content"
         document.getElementById("tiet-content").innerHTML = nieuweInhoud;
+        document.getElementById("url").innerHTML = currentURL;
     </script>
 </body>
 </html>
