@@ -14,6 +14,14 @@
         <h1>Je weet het!</h1>
         <p>Dit is de inhoud die getoond wordt als "/ikweethet" in de URL staat.</p>
     </div>
+    <div id="tiet-content" style="display: none;">
+        <h1>Ik weet het TIET.be!</h1>
+        <p>Dit is de inhoud die getoond wordt als "/tiet.be/" in de URL staat.</p>
+    </div>
+    <div id="tiet-ikweethet-content" style="display: none;">
+        <h1>Je weet het!</h1>
+        <p>Dit is de inhoud die getoond wordt als "/tiet.be/ikweethet/" in de URL staat.</p>
+    </div>
 
     <script>
         // Huidige URL ophalen
@@ -21,13 +29,24 @@
 
         // Array met paden die een specifieke inhoud tonen
         const specialePaden = ["/ikweethet"];
+        const specialePaden = ["/tiet.be/ikweethet/"];
+        const specialePaden = ["/tiet.be/"];
 
         // Check of de huidige URL in de speciale paden array zit
         if (specialePaden.includes(currentURL)) {
             // Toon de speciale inhoud
             document.getElementById("standaard-content").style.display = "none";
             document.getElementById("ikweethet-content").style.display = "block";
+            document.getElementById("tiet-content").style.display = "none";
+            document.getElementById("tiet-ikweethet-content").style.display = "none";
         }
+        if (currentURL == "/tiet.be/ikweethet/") {
+            document.getElementById("standaard-content").style.display = "none";
+            document.getElementById("ikweethet-content").style.display = "none";
+            document.getElementById("tiet-content").style.display = "none";
+            document.getElementById("tiet-ikweethet-content").style.display = "block";
+        }
+        
     </script>
 </body>
 </html>
