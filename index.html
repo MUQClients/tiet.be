@@ -3,41 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voorbeeld met URL-check</title>
+    <title>Querystring Alternatieve Methode</title>
 </head>
 <body>
-    <h1>Test4!!!</h1>
-    <div id="standaard-content">
-        <h1>Welkom op de standaard pagina</h1>
-        <p>Dit is de inhoud die getoond wordt als "/ikweethet" niet in de URL staat.</p>
-    </div>
-    <div id="ikweethet-content" style="display: none;">
-        <h1>Je weet het!</h1>
-        <p>Dit is de inhoud die getoond wordt als "/ikweethet" in de URL staat.</p>
-    </div>
-    <div id="url-content">
-        <h1 id="url">Test</h1>
-    <p></p>
+    <h1>Test6!!!!</h1>
+    <div id="tiet-content">
+        <p>Standaard inhoud</p>
     </div>
 
     <script>
-        // Huidige URL ophalen
-        const currentURL = window.location.pathname;
+        // De volledige URL ophalen en handmatig naar de querystring zoeken
+        const url = window.location.href;
 
-        // Array met paden die een specifieke inhoud tonen
-        const specialePaden = ["/ikweethet"];
-        const specialePaden = ["/tiet.be/ikweethet/"];
-        const specialePaden = ["/tiet.be/"];
+        // Checken of de URL een vraagteken bevat, wat wijst op een querystring
+        if (url.includes("?")) {
+            const queryString = url.split("?")[1];  // Pak alles na het vraagteken
 
-        // Check of de huidige URL in de speciale paden array zit
-        if (specialePaden.includes(currentURL)) {
-            // Toon de speciale inhoud
-            document.getElementById("standaard-content").style.display = "none";
-            document.getElementById("ikweethet-content").style.display = "block";
-         }
-
-        // Test
-        document.getElementById("url").innerHTML = window.location.search;
+            // Controleer op een specifieke waarde in de querystring
+            if (queryString === "3434323sdfsdfsdfsdfsd") {
+                // Als de querystring overeenkomt, voer dan specifieke code uit
+                document.getElementById("tiet-content").innerHTML = `
+                    <h2>Speciale Inhoud</h2>
+                    <p>De inhoud is aangepast omdat de specifieke querystring aanwezig is!</p>
+                `;
+            } else {
+                document.getElementById("tiet-content").innerHTML = `
+                    <h2>Andere Querystring</h2>
+                    <p>Dit is de inhoud voor alle andere querystrings.</p>
+                `;
+            }
+        } else {
+            document.getElementById("tiet-content").innerHTML = `
+                <h2>Geen Querystring</h2>
+                <p>Dit is de inhoud wanneer er geen querystring aanwezig is.</p>
+            `;
+        }
     </script>
 </body>
 </html>
