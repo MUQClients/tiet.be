@@ -6,7 +6,7 @@
     <title>Voorbeeld met URL-check</title>
 </head>
 <body>
-    <h1>Test3!!!</h1>
+    <h1>Test4!!!</h1>
     <div id="standaard-content">
         <h1>Welkom op de standaard pagina</h1>
         <p>Dit is de inhoud die getoond wordt als "/ikweethet" niet in de URL staat.</p>
@@ -15,17 +15,9 @@
         <h1>Je weet het!</h1>
         <p>Dit is de inhoud die getoond wordt als "/ikweethet" in de URL staat.</p>
     </div>
-    <div id="tiet-content" style="display: none;">
-        <h1>Ik weet het TIET.be!</h1>
-        <p>Dit is de inhoud die getoond wordt als "/tiet.be/" in de URL staat.</p>
-    </div>
-    <div id="tiet-ikweethet-content" style="display: none;">
-        <h1>Je weet het!</h1>
-        <p>Dit is de inhoud die getoond wordt als "/tiet.be/ikweethet/" in de URL staat.</p>
-    </div>
     <div id="url-content">
         <h1 id="url">Test</h1>
-        <p></p>
+    <p></p>
     </div>
 
     <script>
@@ -42,25 +34,10 @@
             // Toon de speciale inhoud
             document.getElementById("standaard-content").style.display = "none";
             document.getElementById("ikweethet-content").style.display = "block";
-            document.getElementById("tiet-content").style.display = "none";
-            document.getElementById("tiet-ikweethet-content").style.display = "none";
-        }
-        if (currentURL == "/tiet.be/ikweethet/") {
-            document.getElementById("standaard-content").style.display = "none";
-            document.getElementById("ikweethet-content").style.display = "none";
-            document.getElementById("tiet-content").style.display = "none";
-            document.getElementById("tiet-ikweethet-content").style.display = "block";
-        }
+         }
 
         // Test
-        const nieuweInhoud = `
-            <h2>Nieuwe Inhoud!!!  -- url:` +    currentURL + ` </h2>
-            <p>Dit is de nieuwe inhoud die we hebben toegevoegd met JavaScript!!!</p>
-        `;
-
-        // De inhoud wegschrijven naar het element met id "tiet-content"
-        document.getElementById("tiet-content").innerHTML = nieuweInhoud;
-        document.getElementById("url").innerHTML = currentURL;
+        document.getElementById("url").innerHTML = window.location.search;
     </script>
 </body>
 </html>
