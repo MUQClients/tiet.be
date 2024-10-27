@@ -26,6 +26,12 @@
                     <h2>Speciale Inhoud</h2>
                     <p>De inhoud is aangepast omdat de specifieke querystring aanwezig is!</p>
                 `;
+            } else if (queryString === "nathalie") {
+                // Als de querystring overeenkomt, voer dan specifieke code uit
+                document.getElementById("tiet-content").innerHTML = `
+                    <h2>Ik wil je Nathalie!</h2>
+                    <p>Als het panterke dat ik kan bepanteren ;-)</p>
+                `;
             } else {
                 document.getElementById("tiet-content").innerHTML = `
                     <h2>Andere Querystring</h2>
